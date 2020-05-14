@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import React, {Fragment} from 'react';
+import React,{Fragment} from 'react';
+import Book from './book';
 class currentlyReading extends React.Component{
 
     render(){
@@ -34,6 +34,7 @@ class currentlyReading extends React.Component{
                           <div className="book-title">Ender's Game</div>
                           <div className="book-authors">Orson Scott Card</div>
                         </div>
+                        <Book/>
                       </li>
                       </Fragment>
         );

@@ -1,8 +1,8 @@
 
-import React,{Component} from 'react';
+import React from 'react';
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import shelves from './shelves'
+import shelves from './shelves.js'
 
 class BooksApp extends React.Component {
   state = {
@@ -43,12 +43,13 @@ class BooksApp extends React.Component {
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
+              <shelves/>
             </div>
-            <shelves/>
+            
           </div>
       
       </div>
-    )
+    );
   }
 }
 
