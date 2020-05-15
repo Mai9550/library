@@ -11,7 +11,7 @@ class currentlyReading extends React.Component{
             <h2 className="bookshelf-title">Currently Reading</h2>
                         <li>
                         {booksOnThisShelf.map(book=>( 
-                        <Book  book={this.props.book}/>
+                        <Book  book={book}/>
                         ))}
                       </li>
                       </Fragment>
