@@ -1,27 +1,31 @@
 
-import React from 'react';
-// import * as BooksAPI from './BooksAPI'
+import React,{Component} from 'react';
+import * as BooksAPI from './BooksAPI';
+import getAll from './BooksAPI.js'
 import './App.css'
-import shelves from './shelves.js'
+import Shelves from './shelves.js'
 
-class BooksApp extends React.Component {
+class App extends Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false
-  }
+    books:[]
+    
+  };
+  
+  componentDidMount = () => {
+    BooksAPI.getAll().then(books => {
+      this.setState({ books: books });
+    });
+  };
+    
 
   render() {
+    const books=this.state;
     return (
       <div className="app">
         
           <div className="search-books">
             <div className="search-books-bar">
-              <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+              <button className="close-search" >Close</button>
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -43,7 +47,7 @@ class BooksApp extends React.Component {
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
-              <shelves/>
+              <Shelves books={books} />
             </div>
             
           </div>
@@ -53,4 +57,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default App

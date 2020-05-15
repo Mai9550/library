@@ -1,17 +1,18 @@
-import React,{Fragment} from 'react';
+import React,{Fragment,Component} from 'react';
 import Currentlyreading from './Currentlyreading.js';
-import wantToRead from './wantToread.js';
+import WantToRead from './wantToread.js';
 import Read from './Read.js'
-class shelves extends React.Component{
+class Shelves extends Component{
   
 render(){
+  const {books}=this.props;
     return(  
         <Fragment>   
           <div className="bookshelf">
                  
                     <div className="bookshelf-books">
                      <ol className="books-grid">
-                     <Currentlyreading/>  
+                     <Currentlyreading books={books} />  
                       
                     </ol>
                   </div>
@@ -20,7 +21,7 @@ render(){
                   
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    <wantToRead/>
+                    <WantToRead books={books} />
                     </ol>
                   </div>
                 </div>
@@ -28,7 +29,7 @@ render(){
                   
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    <Read/>
+                    <Read books={books} />
                     </ol>
                   </div>
                 </div>
@@ -39,4 +40,4 @@ render(){
     );
 }
 }
-export default shelves;
+export default Shelves;
