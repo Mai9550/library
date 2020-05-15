@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 class NavigationButton extends Component {
   render() {
+    
     return (
       <div className="book-shelf-changer">
         <select value={this.props.shelf}>
